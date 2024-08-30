@@ -12,9 +12,9 @@ const nextDir = path.join(__dirname, "..");
 function runNextCommand(command, readmePathOption, configPathOption) {
   const readmePath = readmePathOption || "./README.md";
   const configPath = configPathOption || "./rapid.config.js";
-
   setEnvPath("README_PATH", readmePath);
   setEnvPath("RPD_CONFIG_PATH", configPath);
+  process.env.NEXT_DIST_DIR = process.cwd();
 
   generateDemoPageContent(configPath);
 
