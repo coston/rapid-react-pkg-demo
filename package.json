@@ -69,5 +69,14 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "next-env-d.ts",
+    "next.config.js",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ]
 }
