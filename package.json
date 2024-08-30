@@ -1,7 +1,7 @@
 {
   "name": "rapid-react-pkg-demo",
   "description": "A CLI tool for quickly creating react package demos",
-  "version": "0.1.3",
+  "version": "0.1.4-0",
   "bin": {
     "rapid": "./bin/cli.js"
   },
