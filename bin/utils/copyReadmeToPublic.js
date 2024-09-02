@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const copyReadmeToPublic = () => {
-  const readmePath = path.resolve(process.cwd(), "README.md");
+  const readmePath = process.env.README_PATH;
   const publicDir = path.resolve(__dirname, "../../src/public");
   const publicReadmePath = path.join(publicDir, "README.md");
 
@@ -12,6 +12,7 @@ const copyReadmeToPublic = () => {
 
   if (fs.existsSync(readmePath)) {
     fs.copyFileSync(readmePath, publicReadmePath);
+    console.log(`Copied README.md to ${publicReadmePath}`);
   } else {
     console.error("README.md file not found.");
   }
