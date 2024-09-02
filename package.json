@@ -75,7 +75,7 @@
   },
   "files": [
     "bin/",
-    "app/",
+    "src/",
     "next-env-d.ts",
     "next.config.mjs",
     "README.md",
