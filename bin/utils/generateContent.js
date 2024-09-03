@@ -1,5 +1,5 @@
 function generateContent(config, importStatements) {
-  const { color, packageName, icon, scope } = config;
+  const { color, packageName, description, icon, scope } = config;
 
   return `"use client";
 
@@ -15,6 +15,7 @@ function generateContent(config, importStatements) {
       <Demo
         color="${color}"
         packageName={"${packageName}"}
+        description={"${description}"}
         icon={"${icon}"}
         ${scope ? `scope={{${scope}}}` : ""}
         markdown={content}
