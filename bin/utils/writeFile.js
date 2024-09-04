@@ -1,8 +1,11 @@
 const fs = require("fs");
 
 function writeFile(filePath, content) {
-  fs.writeFileSync(filePath, content, "utf8");
-  console.log(`Generated ${filePath}`);
+  try {
+    fs.writeFileSync(filePath, content, "utf8");
+  } catch (error) {
+    console.error(`Failed to write file ${filePath}:`, error);
+  }
 }
 
 module.exports = writeFile;

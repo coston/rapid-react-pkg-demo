@@ -1,8 +1,6 @@
 const path = require("path");
 
-const writeFile = require("./writeFile");
-const generateContent = require("./generateContent");
-const generateManifest = require("./generateManifest");
+const updateFileConfigPath = require("./updateFileConfigPath");
 
 function generateDemoPageContent(configPath) {
   const mainPath = path.join(__dirname, "../../app/components/Main.tsx");
@@ -10,11 +8,8 @@ function generateDemoPageContent(configPath) {
 
   const absoluteConfigPath = path.resolve(process.cwd(), configPath);
 
-  const content = generateContent(absoluteConfigPath);
-  const manifest = generateManifest(absoluteConfigPath);
-
-  writeFile(mainPath, content);
-  writeFile(manifestPath, manifest);
+  updateFileConfigPath(mainPath, absoluteConfigPath);
+  updateFileConfigPath(manifestPath, absoluteConfigPath);
 }
 
 module.exports = generateDemoPageContent;
