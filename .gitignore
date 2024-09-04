@@ -85,3 +85,7 @@ out/
 
 # IDEs
 .idea
+
+# Generated files
+app/components/Main.tsx
+app/manifest.ts
