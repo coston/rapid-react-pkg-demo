@@ -3,8 +3,9 @@
   "description": "A CLI tool for quickly creating react package demos",
   "version": "0.1.5",
   "bin": {
-    "rapid": "./bin/cli.js"
+    "rapid": "./bin/cli.mjs"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/coston/rapid-react-pkg-demo.git"
@@ -22,8 +23,8 @@
   },
   "homepage": "https://github.com/coston/rapid-react-pkg-demo#readme",
   "scripts": {
-    "dev": "node ./bin/cli.js dev",
-    "build": "node ./bin/cli.js build",
+    "dev": "node ./bin/cli.mjs dev",
+    "build": "node ./bin/cli.mjs build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "test": "echo \"Error: no test specified\""

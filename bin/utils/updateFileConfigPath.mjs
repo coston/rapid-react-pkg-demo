@@ -1,6 +1,5 @@
-const fs = require("fs");
-
-const writeFile = require("./writeFile");
+import fs from "fs";
+import writeFile from "./writeFile.mjs";
 
 const updateImportLine = (fileContent, newImportPath) => {
   const newImportLine = `import config from '${newImportPath}';`;
@@ -20,4 +19,4 @@ const updateFileConfigPath = (filePath, newImportPath) => {
   }
 };
 
-module.exports = updateFileConfigPath;
+export default updateFileConfigPath;

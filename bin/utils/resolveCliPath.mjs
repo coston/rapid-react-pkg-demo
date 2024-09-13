@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 function resolveCliPath(cliPathInput) {
   const packageJsonPath = path.resolve(process.cwd(), "package.json");
@@ -11,4 +11,4 @@ function resolveCliPath(cliPathInput) {
   }
 }
 
-module.exports = resolveCliPath;
+export default resolveCliPath;

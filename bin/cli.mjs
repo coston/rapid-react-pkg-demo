@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
-const path = require("path");
-const { program } = require("commander");
-const { execSync } = require("child_process");
+import path from "path";
+import { program } from "commander";
+import { execSync } from "child_process";
+import { fileURLToPath } from "url";
 
-const setEnvPath = require("./utils/setEnvPath");
-const generateDemoPageContent = require("./utils/generateDemoPageContent");
+import setEnvPath from "./utils/setEnvPath.mjs";
+import generateDemoPageContent from "./utils/generateDemoPageContent.mjs";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const nextDir = path.join(__dirname, "..");
 

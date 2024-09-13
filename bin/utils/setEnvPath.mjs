@@ -1,4 +1,4 @@
-const resolveCliPath = require("./resolveCliPath");
+import resolveCliPath from "./resolveCliPath.mjs";
 
 function setEnvPath(envVar, filePath) {
   if (filePath) {
@@ -6,4 +6,4 @@ function setEnvPath(envVar, filePath) {
   }
 }
 
-module.exports = setEnvPath;
+export default setEnvPath;

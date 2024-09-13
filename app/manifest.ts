@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-import config from "../rapid.config.js";
+import config from '/Users/coston/code/coston/rapid-react-pkg-demo/rapid.config.js';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

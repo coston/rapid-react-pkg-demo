@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 function writeFile(filePath, content) {
   try {
@@ -8,4 +8,4 @@ function writeFile(filePath, content) {
   }
 }
 
-module.exports = writeFile;
+export default writeFile;
