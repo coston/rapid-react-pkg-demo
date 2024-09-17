@@ -2,6 +2,7 @@
 
 This is a CLI tool for quickly producing a small react package demo from a README file. It provides simple commands to run a development server and build your Next.js application using [react-pkg-demo](https://www.npmjs.com/package/react-pkg-demo).
 
+
 ## Installation
 
 To install the CLI globally, run:

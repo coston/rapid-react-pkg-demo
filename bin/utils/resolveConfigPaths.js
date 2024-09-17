@@ -10,6 +10,9 @@ const generateStandardImport = (variable, resolvedPath) =>
 const generateNamedImport = (variables, resolvedPath) =>
   `import { ${variables} } from "${resolvedPath}";`;
 
+const generateCssImport = (resolvedPath) =>
+  `import "${resolvedPath}";`;
+
 const processRequireStatements = (
   fileContent,
   regex,
@@ -17,16 +20,24 @@ const processRequireStatements = (
   generator
 ) =>
   [...fileContent.matchAll(regex)].map((match) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, variables, importPath] = match;
     const resolvedPath = resolveImportPath(configFilePath, importPath);
     return generator(variables, resolvedPath);
+  });
+
+const processCssImportStatements = (fileContent, regex, configFilePath) =>
+  [...fileContent.matchAll(regex)].map((match) => {
+    const [_, importPath] = match;
+    const resolvedPath = resolveImportPath(configFilePath, importPath);
+    return generateCssImport(resolvedPath);
   });
 
 function resolveConfigPaths(fileContent, configFilePath) {
   const requireRegex = /const\s+(\w+)\s*=\s*require\(["'](.+?)["']\);?/g;
   const namedRequireRegex =
     /const\s+\{([^}]+)\}\s*=\s*require\(["'](.+?)["']\);?/g;
+  const cssRequireRegex = /require\(["'](.+?\.css)["']\);?/g;
+  const cssImportRegex = /import\s+["'](.+?\.css)["'];?/g;
 
   const standardImports = processRequireStatements(
     fileContent,
@@ -42,7 +53,24 @@ function resolveConfigPaths(fileContent, configFilePath) {
     generateNamedImport
   );
 
-  const finalContent = [...standardImports, ...namedImports].join("\n");
+  const cssRequires = processCssImportStatements(
+    fileContent,
+    cssRequireRegex,
+    configFilePath
+  );
+
+  const cssImports = processCssImportStatements(
+    fileContent,
+    cssImportRegex,
+    configFilePath
+  );
+
+  const finalContent = [
+    ...standardImports,
+    ...namedImports,
+    ...cssRequires,
+    ...cssImports,
+  ].join("\n");
 
   return finalContent;
 }
