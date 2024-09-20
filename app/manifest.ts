@@ -1,22 +1,20 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"
 
-import config from "../rapid.config.js";
-
-export default function manifest(): MetadataRoute.Manifest {
-  return {
-    name: config.packageName + " docs",
-    short_name: config.packageName,
-    description: config.description,
-    start_url: "/",
-    display: "standalone",
-    background_color: config.color,
-    theme_color: config.color,
-    icons: [
-      {
-        src: "/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-      },
-    ],
-  };
-}
+  export default function manifest(): MetadataRoute.Manifest {
+    return {
+      name: "rapid-react-pkg-demo docs",
+      short_name: "rapid-react-pkg-demo",
+      description: "A CLI tool for quickly creating react package demos",
+      start_url: "/",
+      display: "standalone",
+      background_color: "#bfe0ea",
+      theme_color: "#bfe0ea",
+      icons: [
+        {
+          src: "/favicon.ico",
+          sizes: "any",
+          type: "image/x-icon",
+        },
+      ],
+    }
+  }
