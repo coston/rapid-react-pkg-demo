@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # Update npm dependencies for the npm package
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -8,8 +7,9 @@ updates:
     commit-message:
       prefix: "deps"
     open-pull-requests-limit: 10
-    automerge: true
-    automerge-type: "pr"
+    update_configs:
+      - automerge: true
+        automerge-type: "pr"
     groups:
       react-and-related:
         patterns:
