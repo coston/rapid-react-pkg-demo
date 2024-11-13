@@ -8,6 +8,8 @@ updates:
     commit-message:
       prefix: "deps"
     open-pull-requests-limit: 10
+    automerge: true
+    automerge-type: "pr"
     groups:
       react-and-related:
         patterns:
