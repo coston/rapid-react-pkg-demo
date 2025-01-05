@@ -1,4 +1,9 @@
 # 🌊 rapid-react-pkg-demo
+![GitHub last commit](https://img.shields.io/github/last-commit/coston/rapid-react-pkg-demo)
+[![NPM Downloads](https://img.shields.io/npm/dm/rapid-react-pkg-demo?style=flat-square&logo=npm)
+](https://www.npmjs.com/package/rapid-react-pkg-demo)
+[![GitHub Repo stars](https://img.shields.io/github/stars/coston/rapid-react-pkg-demo)
+](https://github.com/coston/rapid-react-pkg-demo)
 
 This is a CLI tool for quickly producing a small react package demo from a README file. It provides simple commands to run a development server and build your Next.js application using [react-pkg-demo](https://www.npmjs.com/package/react-pkg-demo).
 
