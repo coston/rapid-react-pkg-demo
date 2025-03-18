@@ -4,14 +4,67 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+
+    # Commit message configuration
     commit-message:
+      # Use conventional commit format
       prefix: "deps"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+
     open-pull-requests-limit: 10
+
+    # Auto-merge configuration
+    # This will auto-merge minor and patch updates that pass tests
     automerge: true
-    automerge-type: "pr"
+    versioning-strategy: auto
+    rebase-strategy: auto
+
+    # Specify which updates to auto-merge
+    ignore:
+      # Don't auto-merge major updates as they might contain breaking changes
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+    # Dependency grouping
     groups:
-      react-and-related:
+      # Group 1: React core packages
+      react-core:
         patterns:
           - "react"
           - "react-dom"
-          - "@testing-library/react"
+          - "react-pkg-demo"
+
+      # Group 2: Next.js and related
+      next-js:
+        patterns:
+          - "next"
+          - "@next/*"
+
+      # Group 3: TypeScript and type definitions
+      typescript-and-types:
+        patterns:
+          - "typescript"
+          - "@types/*"
+          - "@babel/preset-typescript"
+
+      # Group 4: ESLint and linting tools
+      eslint-and-linting:
+        patterns:
+          - "eslint"
+          - "eslint-plugin-*"
+          - "@typescript-eslint/*"
+          - "@next/eslint-plugin-next"
+          - "lint-staged"
+
+      # Group 5: Development tools
+      dev-tools:
+        patterns:
+          - "husky"
+          - "@commitlint/*"
+
+      # Group 6: Build tools
+      build-tools:
+        patterns:
+          - "commander"
+          - "babel-loader"
