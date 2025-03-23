@@ -15,8 +15,8 @@ updates:
     open-pull-requests-limit: 10
 
     # Auto-merge configuration
-    # This will auto-merge minor and patch updates that pass tests
-    automerge: true
+    # Auto-merge is now configured through GitHub repository settings
+    # or using GitHub Actions workflows
     versioning-strategy: auto
     rebase-strategy: auto
 
